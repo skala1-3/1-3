@@ -1,0 +1,466 @@
+/* src/App.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f7, #e2eaf0);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden; /* 스크롤바 숨김 */
+}
+
+/* 메인 대시보드 컨테이너 */
+.dashboard-container {
+  max-width: 900px;
+  margin: 10px auto; /* 위아래 여백을 더 줄임 */
+  padding: 10px; /* 내부 패딩을 더 줄임 */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  height: calc(100vh - 20px); /* 뷰포트 높이에 맞춤 */
+  box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+}
+
+.dashboard-header {
+  margin-bottom: 5px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.2em; /* 헤더 글꼴 크기 축소 */
+  margin: 0;
+}
+
+.dashboard-header p {
+  font-size: 0.7em; /* 부가 설명 글꼴 크기 축소 */
+}
+
+.summary-section,
+.details-section {
+  margin-top: 15px; /* 섹션 간 여백 축소 */
+  flex: 1;
+}
+/* 연도별 배출량 추이 그래프를 감싸는 컨테이너 */
+.chart-wrapper-emissions {
+  /* 부모 컨테이너의 전체 너비를 차지하도록 설정합니다. */
+  width: 100%; 
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.charts-section {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  /* 차트 간 간격 */
+  gap: 15px; 
+  /* 핵심 수정: 남은 공간을 테이블 섹션보다 더 많이 차지하도록 만듭니다. */
+  flex: 2;
+}
+.summary-section h2,
+.details-section h2 {
+  font-size: 1em; /* 섹션 제목 글꼴 크기 축소 */
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px; /* 카드 간 간격을 더 줄임 */
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 8px; /* 카드 패딩 최소화 */
+  font-size: 0.8em; /* 카드 전체 글꼴 축소 */
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 100px; /* 카드 최소 너비 축소 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 그림자 축소 */
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 0.8em; /* 카드 제목 글꼴 크기 축소 */
+  color: #34495e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 3px 0;
+}
+
+.card h3 svg {
+  width: 16px;
+  height: 16px; /* 아이콘 크기 축소 */
+  margin-right: 4px;
+}
+
+.value {
+  font-size: 1.1em; /* 값의 글꼴 크기 축소 */
+  font-weight: bold;
+  color: #2980b9;
+}
+
+.charts-section {
+  display: flex;
+  flex-direction: column; /* 차트를 세로로 배치하여 공간 확보 */
+  align-items: center;
+  gap: 10px; /* 차트 간 간격 축소 */
+  flex: 1;
+}
+
+.chart-wrapper {
+  max-width: 100%; /* 차트 너비를 컨테이너에 맞춤 */
+  padding: 5px; /* 차트 패딩 최소화 */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: none; /* 그림자 제거하여 공간 확보 */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.75em; /* 테이블 전체 글꼴 크기 축소 */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #e0e0e0;
+  padding: 6px; /* 테이블 셀 패딩 최소화 */
+  text-align: left;
+}
+
+th {
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: 600;
+}
+
+.category-header {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.supplier-list-container {
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.supplier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.supplier-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.supplier-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* 기타 스타일 */
+.supplier-list-section {
+  flex: 0 0 30%;
+  min-width: 250px;
+  padding: 10px; /* 내부 컨테이너에 패딩을 주기 위해 패딩을 유지 */
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.grade-label {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+}
+
+.grade-A { background-color: #28a745; }
+.grade-B { background-color: #007bff; }
+.grade-C { background-color: #ffc107; }
+.grade-D { background-color: #dc3545; }
+
+.score-item {
+  font-size: 0.85em;
+  color: #555;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.75em;
+  color: #777;
+}
+
+.risk-tags {
+  margin-top: 10px;
+}
+
+.risk-tag {
+  display: inline-block;
+  padding: 3px 6px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 4px;
+  font-size: 0.7em;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* KPI 칩 컨테이너 스타일 */
+.kpi-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.kpi-chip {
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #495057;
+}
+
+.kpi-chip.overdue {
+  background-color: #ff5252;
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  margin-left: 5px;
+}
+
+/* 차트와 테이블 섹션을 가로로 배치 */
+.charts-and-table-section {
+  display: flex;
+  gap: 50px; /* 섹션들 사이의 간격 설정 */
+  margin-top: 20px;
+}
+
+.supplier-map-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* 부드러운 그림자 효과 */
+  padding: 15px; /* 내부 패딩을 줘서 공간 확보 */
+  margin: 0; /* 불필요한 마진 제거 */
+  margin-top: 15px;
+}
+/* section-header 내부 요소를 더 깔끔하게 정렬 */
+.section-header {
+  font-size: 1.0em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+.top-bar-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* 부드러운 그림자 효과 */
+  padding: 15px 5px; /* 내부 패딩을 줘서 공간 확보 */
+  margin: 10px; /* 중앙 정렬 및 여백 */
+  max-width: 900px; /* 메인 대시보드와 동일한 너비로 설정 */
+  position: relative; /* 워터마크를 위한 포지셔닝 컨텍스트 */
+}
+/* 기존 .top-bar 스타일 수정 */
+.top-bar {
+  /* ... (기존 스타일 유지) ... */
+  padding: 8px 15px; /* 상하 8px, 좌우 15px 패딩 */
+  border-bottom: none; /* 하단 보더 제거 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 기존 .watermark 스타일 수정 */
+.watermark {
+  position: absolute; /* .top-bar-card에 상대적으로 위치 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 7em;
+  color: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.supplier-list-placeholder {
+  display: block; /* Flexbox에서 블록 요소로 변경하여 너비 조절 용이 */
+  min-height: 150px; /* 원하는 최소 높이 설정 */
+  border: 1px #ccc; /* 빈 컨테이너임을 시각적으로 보여줌 */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 30px; /* 위쪽 협력사 맵 박스와 간격 주기 */
+  padding: 10px; /* 내부 콘텐츠에 적절한 여백을 줍니다. */
+}
+
+.placeholder-text {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
+/*
+App.css 파일에 아래 스타일 추가, 협력사 맵 아래에 '규제 스펙 자동 완성'이라는 새로운 UI가 생겨나고,
+사용자가 파일을 선택하면 JSON 데이터를 미리 볼 수 있습니다. 추후 실제 API가 완성되면 handleFileChange 함수 내부에 파일 처리 로직을 추가하면 됩니다. 
+*/
+
+.regulation-autocomplete-ui {
+  padding: 15px;
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%; /* 너비를 부모 컨테이너에 맞춰 100%로 확장 */
+  height: 100%;
+}
+
+.regulation-autocomplete-ui h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.regulation-autocomplete-ui .description {
+  font-size: 0.8em;
+  color: #888;
+}
+
+.upload-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.upload-area button {
+  padding: 8px 15px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.json-preview-container {
+  margin-top: 20px;
+  background-color: #2b2b2b;
+  color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.json-preview-container h3 {
+  font-size: 0.9em;
+  color: #00bcd4;
+  margin: 0 0 5px 0;
+}
+
+.json-preview-container pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.75em;
+  line-height: 1.4;
+}
+.main-dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+/*제공된 HTML 구조에 맞춰서, **.supplier-detail-panel**과 **.panel-section**에 아래 CSS를 적용해 보세요*/
+/* 전체 패널 스타일 */
+.supplier-detail-panel {
+  padding: 20px;
+  background-color: #f8f9fa; /* 패널 전체의 배경색을 연한 회색으로 설정 */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  /* 아래에 오는 내용들과의 여백을 줘서 구분 */
+}
+
+/* 각 섹션(박스) 스타일 */
+.panel-section {
+  background-color: #fff; /* 각 섹션의 배경색을 흰색으로 설정 */
+  border: 1px solid #e9ecef; /* 연한 회색 테두리 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  padding: 15px;
+  margin-bottom: 15px; /* 섹션들 간의 간격 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+  /* 가시성을 높이는 효과 */
+}
+
+/* 폰트와 간격 등 세부 스타일 */
+.panel-section h4 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #e9ecef; /* 제목 아래에 구분선 추가 */
+  padding-bottom: 5px;
+}
+
+.score-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #e0f7fa; /* 뱃지 배경색 */
+  color: #00796b; /* 뱃지 텍스트 색상 */
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
