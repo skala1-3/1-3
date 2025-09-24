@@ -1,0 +1,42 @@
+{
+  "spec_id": "k_esg",
+  "title": "K-ESG Disclosure Standards (Korea)",
+  "sections": [
+    {
+      "section_id": "E1",
+      "title": "Environment",
+      "required_fields": [
+        "Scope 1 emission",
+        "Scope 2 emission",
+        "Total energy consumption",
+        "Renewable energy consumption",
+        "Water usage (including water-stressed areas)",
+        "Waste generation and recycling rate",
+        "Plastic usage and reduction",
+        "Biodiversity impact in sensitive areas"
+      ]
+    },
+    {
+      "section_id": "S1",
+      "title": "Social",
+      "required_fields": [
+        "Employee diversity and inclusion",
+        "Workplace safety incidents",
+        "Supply chain labor practices",
+        "Community contributions",
+        "Consumer product responsibility"
+      ]
+    },
+    {
+      "section_id": "G1",
+      "title": "Governance",
+      "required_fields": [
+        "Board structure and independence",
+        "Ethics and anti-corruption",
+        "Risk management policies",
+        "Disclosure of sustainability targets",
+        "Alignment with international standards (ISSB, IFRS S1/S2)"
+      ]
+    }
+  ]
+}

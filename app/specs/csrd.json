@@ -1,0 +1,46 @@
+{
+  "spec_id": "csrd",
+  "title": "Corporate Sustainability Reporting Directive (EU)",
+  "sections": [
+    {
+      "section_id": "E1",
+      "title": "Environment",
+      "required_fields": [
+        "Scope 1 emission",
+        "Scope 2 emission",
+        "Scope 3 emission",
+        "Total energy consumption",
+        "Renewable energy share",
+        "Water withdrawal and consumption",
+        "Waste generation and recycling rate",
+        "Resource use and circularity",
+        "Biodiversity-sensitive areas impact",
+        "Pollution (air, water, soil)"
+      ]
+    },
+    {
+      "section_id": "S1",
+      "title": "Social",
+      "required_fields": [
+        "Employee headcount and diversity",
+        "Equal opportunity and inclusion policy",
+        "Health and safety incident rate",
+        "Human rights in supply chain",
+        "Community engagement initiatives",
+        "Consumer and end-user safety"
+      ]
+    },
+    {
+      "section_id": "G1",
+      "title": "Governance",
+      "required_fields": [
+        "Board composition and diversity",
+        "Executive remuneration policy",
+        "Anti-corruption and ethics policy",
+        "Risk management framework",
+        "Sustainability strategy and targets",
+        "External assurance of ESG data"
+      ]
+    }
+  ]
+}
