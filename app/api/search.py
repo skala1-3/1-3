@@ -7,7 +7,8 @@ import numpy as np
 
 router = APIRouter(prefix="/api/search", tags=["search"])
 
-store = VectorStore(dimension=384, index_path="storage/vectors.index")
+# ✅ 경로 + 차원 통일
+store = VectorStore(dimension=1536, index_path="app/storage/vectors.index")
 bm25 = None
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
@@ -20,6 +21,8 @@ def init_bm25():
 @router.post("/faiss")
 def faiss_search(query: str, top_k: int = 5):
     q_vec = get_embedding(query)
+    print("쿼리 임베딩 길이:", len(q_vec))
+    print("검색 시점 인덱스 개수:", store.index.ntotal)
     return store.search(q_vec, top_k=top_k)
 
 @router.post("/bm25")
@@ -35,7 +38,6 @@ def hybrid_search(query: str, top_k: int = 5, alpha: float = 0.5):
     faiss_res = faiss_search(query, top_k=top_k*2)
     bm25_res = bm25_search(query, top_k=top_k*2)
 
-    # normalize
     def norm(vals):
         arr = np.array(vals)
         return (arr - arr.min()) / (arr.max() - arr.min()) if arr.max() > arr.min() else np.zeros_like(arr)

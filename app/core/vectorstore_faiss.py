@@ -2,7 +2,7 @@ import faiss, os, pickle
 import numpy as np
 
 class VectorStore:
-    def __init__(self, dimension: int = 384, index_path: str = "storage/vectors.index"):
+    def __init__(self, dimension: int = 1536, index_path: str = "storage/vectors.index"):
         self.dimension = dimension
         self.index_path = index_path
         self.index = None
